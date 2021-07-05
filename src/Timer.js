@@ -1,17 +1,26 @@
+import {View} from './View.js';
+
+
 const Timer = {
     time: 0.1 * 60, //transformando minutos em segundos
-    currentTime: 0, 
+    currentTime: 0,
+    interval: null,
     init() {
         Timer.currentTime = Timer.time
-        setInterval(Timer.countdown,1000)//um segundo
-    }, 
+        Timer.interval = setInterval(Timer.countdown, 1000)//um segundo
+    },
 
 
-    countdown(){
+    countdown() {
         Timer.currentTime = Timer.currentTime - 1
-        console.log( Timer.currentTime )
+        console.log(Timer.currentTime)
+
+        if (Timer.currentTime === 0) {
+            clearInterval(Timer.interval)
+            return;
+        }
     }
 }
 
 
-export { Timer}
+export { Timer }
