@@ -25,9 +25,13 @@ const Timer = {
     
     countdown() {
         Timer.currentTime = Timer.currentTime - 1
+
+
+        const minutes = Timer.timeToMinutes(Timer.currentTime)
+        const seconds = Timer.timeToSeconds(Timer.currentTime)
+
         //console.log(Timer.currentTime)
-        console.log(Timer.timeToMinutes(Timer.currentTime), ":",
-        Timer.timeToMinutes(Timer.currentTime))       
+        console.log(Timer.formatTime(minutes), ":", Timer.formatTime(seconds))      
 
         if (Timer.currentTime === 0) {
             clearInterval(Timer.interval)
